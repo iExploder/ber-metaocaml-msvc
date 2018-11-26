@@ -24,7 +24,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <assert.h>
-#include <unistd.h>
+#ifdef _MSC_VER
+/* For MSVC@Windows, unistd.h DO NOT EXIST */
+#else
+# include <unistd.h>
+#endif
+
 #include <stdio.h>
 
 #if defined(OPT)
